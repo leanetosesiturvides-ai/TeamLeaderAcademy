@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planificador de Bloques CEO 2026 - TLA</title>
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark: #0d0d0d;
+            --card: #161616;
+            --border: #333;
+            --text: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .no-print {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            background: var(--gold);
+            color: black;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 12mm 15mm;
+            margin: 0 auto 30px auto;
+            background: var(--card);
+            border: 1px solid var(--border);
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 { color: var(--gold); margin: 0; font-size: 18px; text-transform: uppercase; letter-spacing: 2px; }
+        .year { color: var(--gold); font-weight: bold; font-size: 14px; }
+
+        h2 { color: white; font-size: 19px; text-transform: uppercase; margin: 5px 0; }
+        
+        .instruction-banner {
+            background: rgba(197, 160, 89, 0.05);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            padding: 10px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .planner-grid {
+            display: grid;
+            grid-template-columns: 80px repeat(5, 1fr);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .grid-header {
+            background: #222;
+            color: var(--gold);
+            padding: 10px 5px;
+            text-align: center;
+            font-size: 10px;
+            font-weight: bold;
+            border-bottom: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+        }
+
+        .time-col {
+            background: #1a1a1a;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            font-size: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            height: 42px;
+        }
+
+        .cell {
+            border-right: 1px solid #222;
+            border-bottom: 1px solid #222;
+            height: 42px;
+        }
+
+        textarea.cell-input {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 4px;
+            font-size: 10px;
+            resize: none;
+            box-sizing: border-box;
+        }
+
+        .priorities-area {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .priority-box {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid #222;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .priority-box span { font-size: 8px; color: var(--gold); text-transform: uppercase; display: block; margin-bottom: 4px; }
+
+        .extra-section {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .box {
+            background: #111;
+            border: 1px solid var(--border);
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .box-title { font-size: 11px; color: var(--gold); font-weight: bold; text-transform: uppercase; margin-bottom: 8px; display: block; }
+
+        /* Estilo unificado para TEXTAREA e INPUT */
+        textarea.standard, input.standard-input {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            resize: none;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        textarea.standard:focus, input.standard-input:focus {
+            outline: 1px solid var(--gold);
+            border-color: var(--gold);
+        }
+
+        footer {
+            margin-top: auto;
+            text-align: center;
+            font-size: 9px;
+            color: #555;
+            border-top: 1px solid #222;
+            padding-top: 8px;
+        }
+
+        @media print {
+            .no-print { display: none; }
+            body { background: white; padding: 0; }
+            .page { margin: 0; border: none; box-shadow: none; width: 100%; page-break-after: always; }
+            header, h2, .grid-header { -webkit-print-color-adjust: exact; }
+            textarea, input { color: black !important; border: 1px solid #eee !important; background: transparent !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="no-print">
+        <button class="download-btn" onclick="window.print()">Exportar Planificador a PDF</button>
+    </div>
+
+    <div class="page">
+        <header>
+            <div class="logo"><h1>Team Leader Academy</h1></div>
+            <div class="year">ESTRATEGIA 2026</div>
+        </header>
+
+        <section style="flex-grow: 1;">
+            <span style="color:var(--gold); font-size:10px; text-transform:uppercase; letter-spacing: 1px;">Ingeniería de Tiempo CEO</span>
+            <h2>Planificador de Bloques de Poder</h2>
+            
+            <div class="instruction-banner">
+                <strong>Filtro CEO:</strong> Define el objetivo sistémico semanal antes de llenar las horas. Busca efectividad, no ocupación.
+            </div>
+
+            <div class="priorities-area">
+                <div class="priority-box"><span>Foco Lunes</span><textarea class="standard" rows="2"></textarea></div>
+                <div class="priority-box"><span>Foco Martes</span><textarea class="standard" rows="2"></textarea></div>
+                <div class="priority-box"><span>Foco Miércoles</span><textarea class="standard" rows="2"></textarea></div>
+                <div class="priority-box"><span>Foco Jueves</span><textarea class="standard" rows="2"></textarea></div>
+                <div class="priority-box"><span>Foco Viernes</span><textarea class="standard" rows="2"></textarea></div>
+            </div>
+
+            <div class="planner-grid">
+                <div class="grid-header">HORA</div>
+                <div class="grid-header">LUNES</div>
+                <div class="grid-header">MARTES</div>
+                <div class="grid-header">MIÉRCOLES</div>
+                <div class="grid-header">JUEVES</div>
+                <div class="grid-header">VIERNES</div>
+
+                <script>
+                    const hours = ["07:00 AM", "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM"];
+                    hours.forEach(h => {
+                        document.write(`<div class="time-col">${h}</div>`);
+                        for(let i=0; i<5; i++) {
+                            document.write(`<div class="cell"><textarea class="cell-input"></textarea></div>`);
+                        }
+                    });
+                </script>
+            </div>
+
+            <div class="extra-section">
+                <div class="box">
+                    <span class="box-title">🚀 Objetivo Sistémico Semanal</span>
+                    <textarea class="standard" style="height: 45px;" placeholder="¿Qué proceso vas a blindar o documentar hoy?"></textarea>
+                </div>
+                <div class="box">
+                    <span class="box-title">📊 Métrica de Éxito Semanal</span>
+                    <textarea class="standard" style="height: 45px;" placeholder="¿Qué KPI validará tu semana?"></textarea>
+                </div>
+            </div>
+
+            <div class="box" style="margin-top: 15px;">
+                <span class="box-title">🛡️ Blindaje de Identidad (No Negociables)</span>
+                <textarea class="standard" style="height: 40px;" placeholder="Ej: No abrir WhatsApp antes de las 10:00 AM / Reuniones solo martes y jueves..."></textarea>
+            </div>
+        </section>
+
+        <footer>© 2026 Team Leader Academy - Ingeniería de Negocios de Alta Gama</footer>
+    </div>
+
+    <div class="page">
+        <header>
+            <div class="logo"><h1>Team Leader Academy</h1></div>
+            <div class="year">AUDITORÍA 2026</div>
+        </header>
+
+        <section style="flex-grow: 1;">
+            <span style="color:var(--gold); font-size:10px; text-transform:uppercase;">Control de Rendimiento CEO</span>
+            <h2>Análisis de Fuga y Re-Ingeniería</h2>
+
+            <div class="box" style="margin: 15px 0;">
+                <span class="box-title">⚠️ Falla de Sistema (¿Dónde se rompió el bloque?)</span>
+                <textarea class="standard" style="height: 100px;" placeholder="Describe la interrupción o tarea técnica que consumió tu tiempo de visión..."></textarea>
+            </div>
+
+            <div class="box" style="margin-bottom: 15px;">
+                <span class="box-title">🛠️ Acción de Re-Ingeniería</span>
+                <textarea class="standard" style="height: 100px;" placeholder="¿Qué ajuste técnico harás mañana para que esto sea imposible de repetir?"></textarea>
+            </div>
+
+            <div class="box" style="margin-bottom: 15px;">
+                <span class="box-title">⚖️ Matriz de Decisión CEO (Post-Análisis)</span>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 5px;">
+                    <div>
+                        <span style="font-size: 9px; color: var(--gold); text-transform: uppercase; letter-spacing: 1px;">¿Valor de la tarea? ($10 vs $500)</span>
+                        <input type="text" class="standard-input" style="margin-top: 5px;">
+                    </div>
+                    <div>
+                        <span style="font-size: 9px; color: var(--gold); text-transform: uppercase; letter-spacing: 1px;">¿Quién debió ejecutarla?</span>
+                        <input type="text" class="standard-input" style="margin-top: 5px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="box" style="margin-bottom: 15px;">
+                <span class="box-title">💡 Insights para el Módulo 2</span>
+                <textarea class="standard" style="height: 100px;" placeholder="¿Qué descubriste sobre tu liderazgo personal al intentar seguir esta agenda?"></textarea>
+            </div>
+
+            <div style="margin-top: auto; padding: 25px; border: 1px dashed var(--gold); text-align: center;">
+                <p style="font-size: 11px; color: white; letter-spacing: 1px;">VALIDACIÓN DE LIDERAZGO PERSONAL 2026</p>
+                <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+                    <div style="font-size: 10px; border-top: 1px solid #444; width: 140px; padding-top: 5px;">FIRMA DE LA CEO</div>
+                    <div style="font-size: 14px; color: var(--gold); font-weight: bold;">[ ACTUALIZADO ]</div>
+                    <div style="font-size: 10px; border-top: 1px solid #444; width: 140px; padding-top: 5px;">FECHA DE CIERRE</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>Próxima Fase: Módulo 2 - Identidad y Liderazgo Personal</footer>
+    </div>
+
+</body>
+</html>
