@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Ruta: De la Operación a la Dirección - TLA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --dark: #0a0a0a;
+            --card: #141414;
+            --border: #2a2a2a;
+            --text: #e0e0e0;
+            --accent: #2ecc71;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .logo-text {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        h1 { font-size: 32px; color: white; margin: 10px 0; }
+        p.subtitle { color: #888; font-size: 16px; }
+
+        h2 { 
+            font-size: 20px; 
+            color: var(--gold); 
+            text-transform: uppercase; 
+            margin-top: 40px;
+            border-left: 4px solid var(--gold);
+            padding-left: 15 Eastern;
+        }
+
+        .roadmap-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #0d0d0d;
+        }
+
+        .roadmap-table th {
+            background: #1a1a1a;
+            color: var(--gold);
+            padding: 15px;
+            text-align: left;
+            font-size: 12px;
+            text-transform: uppercase;
+            border: 1px solid var(--border);
+        }
+
+        .roadmap-table td {
+            padding: 15px;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .week-card {
+            background: #111;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .week-card h3 { color: var(--gold); font-size: 14px; margin: 0 0 10px 0; }
+        .week-card p { font-size: 11px; margin: 0; color: #888; }
+
+        textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            font-family: inherit;
+            resize: none;
+            font-size: 13px;
+        }
+
+        .status-check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--accent);
+        }
+
+        .btn-print {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 0;
+            background: var(--gold);
+            color: black;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+        }
+
+        @media print {
+            .btn-print { display: none; }
+            body { background: white; color: black; }
+            .container { border: none; box-shadow: none; width: 100%; padding: 0; }
+            h1, h2, th { color: black !important; }
+            .roadmap-table td, .week-card { border: 1px solid #ccc !important; background: white !important; color: black !important; }
+            textarea { color: black !important; border-bottom: 1px solid #eee; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo-text">Team Leader Academy</div>
+            <h1>Hoja de Ruta: De la Operación a la Dirección</h1>
+            <p class="subtitle">Plan estratégico de 30 días para transferir la carga operativa y asumir el rol de CEO.</p>
+        </header>
+
+        <section>
+            <h2>1. Plan de Transferencia de Carga (Semana 1-2)</h2>
+            <p style="font-size: 14px;">Identifica las 3 tareas que vas a soltar este mes para recuperar tu tiempo estratégico.</p>
+            
+            <table class="roadmap-table">
+                <thead>
+                    <tr>
+                        <th width="30%">Tarea Operativa</th>
+                        <th width="35%">Miedo Identificado (Identidad)</th>
+                        <th width="35%">Sistema de Control (Liderazgo)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><textarea rows="3" placeholder="Ej: Publicar en redes sociales."></textarea></td>
+                        <td><textarea rows="3" placeholder="Ej: Que no se entienda el tono de mi marca."></textarea></td>
+                        <td><textarea rows="3" placeholder="Ej: Crear un manual de estilo y aprobar contenido los lunes."></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><textarea rows="3" placeholder="Escribe aquí..."></textarea></td>
+                        <td><textarea rows="3" placeholder="¿Qué te frena a soltarlo?"></textarea></td>
+                        <td><textarea rows="3" placeholder="¿Qué reporte o proceso te dará tranquilidad?"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>2. Cronograma de Transición (30 Días)</h2>
+            <div class="week-grid">
+                <div class="week-card">
+                    <h3>Semana 1</h3>
+                    <p>AUDITORÍA</p>
+                    <div style="font-size: 10px; margin-top: 10px; text-align: left;">
+                        • Registrar tiempos.<br>
+                        • Identificar fugas.<br>
+                        • Aplicar 10-10-10.
+                    </div>
+                </div>
+                <div class="week-card">
+                    <h3>Semana 2</h3>
+                    <p>SISTEMATIZACIÓN</p>
+                    <div style="font-size: 10px; margin-top: 10px; text-align: left;">
+                        • Escribir el "Paso a Paso".<br>
+                        • Definir KPI de éxito.<br>
+                        • Elegir responsable.
+                    </div>
+                </div>
+                <div class="week-card">
+                    <h3>Semana 3</h3>
+                    <p>DELEGACIÓN</p>
+                    <div style="font-size: 10px; margin-top: 10px; text-align: left;">
+                        • Entrega de tarea.<br>
+                        • Supervisión pasiva.<br>
+                        • Corregir en privado.
+                    </div>
+                </div>
+                <div class="week-card">
+                    <h3>Semana 4</h3>
+                    <p>DIRECCIÓN</p>
+                    <div style="font-size: 10px; margin-top: 10px; text-align: left;">
+                        • Análisis de resultados.<br>
+                        • Espacio para Visión.<br>
+                        • Nueva rutina CEO.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Registro de Decisión Estratégica Semanal</h2>
+            <p style="font-size: 14px;">Cada viernes, documenta la decisión más importante que tomaste desde tu **Identidad de Líder**, no de empleada.</p>
+            <div style="background: #0d0d0d; padding: 20px; border-radius: 8px; border: 1px solid var(--border);">
+                <div style="margin-bottom: 15px;">
+                    <label style="font-size: 11px; color: var(--gold); text-transform: uppercase;">Decisión Semana 1:</label>
+                    <textarea rows="2" style="border-bottom: 1px solid #333;" placeholder="Escribe tu decisión..."></textarea>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="font-size: 11px; color: var(--gold); text-transform: uppercase;">Decisión Semana 2:</label>
+                    <textarea rows="2" style="border-bottom: 1px solid #333;" placeholder="..."></textarea>
+                </div>
+                <div>
+                    <label style="font-size: 11px; color: var(--gold); text-transform: uppercase;">Decisión Semana 3:</label>
+                    <textarea rows="2" style="border-bottom: 1px solid #333;" placeholder="..."></textarea>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 40px;">
+            <div class="status-check">
+                <input type="checkbox"> <span>He completado mi auditoría de identidad y estoy lista para la Clase 3.</span>
+            </div>
+        </section>
+
+        <button class="btn-print" onclick="window.print()">Descargar Hoja de Ruta PDF</button>
+
+        <div style="margin-top: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px;">
+            <div style="text-align: center;">
+                <div style="border-bottom: 1px solid #444; height: 40px;"></div>
+                <p style="font-size: 12px; margin-top: 8px; color: #888; text-transform: uppercase; letter-spacing: 1px;">FIRMA DE LA CEO</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="border-bottom: 1px solid #444; height: 40px;"></div>
+                <p style="font-size: 12px; margin-top: 8px; color: #888; text-transform: uppercase; letter-spacing: 1px;">FECHA DE INICIO</p>
+            </div>
+        </div>
+        
+        <p style="text-align: center; font-size: 11px; color: #555; margin-top: 30px;">
+            TEAM LEADER ACADEMY - NIVEL 1: LIDERAZGO EMPRESARIAL
+        </p>
+    </div>
+
+</body>
+</html>
