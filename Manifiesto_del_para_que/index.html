@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worksheet: El Manifiesto del Para Qué - Team Leader Academy</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #d4af37; 
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 8px solid var(--primary-color);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .instruction {
+            background: #f4f4f4;
+            padding: 15px;
+            border-left: 4px solid var(--accent-color);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .question-block {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            resize: vertical;
+            font-family: inherit;
+            font-size: 15px;
+            background-color: #fff;
+        }
+
+        .manifesto-box {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 8px;
+        }
+
+        .manifesto-box h2 {
+            color: var(--accent-color);
+            margin-top: 0;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .final-phrase {
+            font-size: 18px;
+            line-height: 2;
+            text-align: center;
+        }
+
+        .input-inline {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--accent-color);
+            color: #fff;
+            font-size: 18px;
+            width: 80%;
+            margin: 5px 0;
+            outline: none;
+            text-align: center;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+        }
+
+        @media print {
+            body { padding: 0; }
+            .container { box-shadow: none; border: 1px solid #eee; }
+            .manifesto-box { background-color: #eee !important; color: #000 !important; }
+            .input-inline { border-bottom: 1px solid #000 !important; color: #000 !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>El Manifiesto del "Para Qué"</h1>
+            <div class="subtitle">Bloque 3: Dirección Estratégica | Team Leader Academy</div>
+        </header>
+
+        <div class="instruction">
+            "En el Network Marketing, tu propósito es el pegamento de tu organización. Si solo te mueven los puntos o el rango, tu red será frágil. Si te mueve una visión, será indestructible."
+        </div>
+
+        <div class="question-block">
+            <label>1. ¿Qué problema del sector o de la vida de las personas te genera una frustración real?</label>
+            <textarea rows="3" placeholder="Ej: La falta de libertad de tiempo en empleos tradicionales o la mala fama del sector por falta de profesionalismo..."></textarea>
+        </div>
+
+        <div class="question-block">
+            <label>2. Si ya hubieras alcanzado el rango más alto y el dinero no fuera problema, ¿por qué seguirías mentorizando a nuevos socios?</label>
+            <textarea rows="3" placeholder="Ej: Por la satisfacción de ver a una madre recuperar su autonomía o ver a un joven construir su primer negocio real..."></textarea>
+        </div>
+
+        <div class="question-block">
+            <label>3. ¿Qué valor o diferencial aportas tú a tu equipo que no se puede encontrar en otro 'line de auspicio'?</label>
+            <textarea rows="3" placeholder="Ej: Mi sistema de duplicación basado en datos, mi enfoque en salud real o mi acompañamiento en liderazgo estratégico..."></textarea>
+        </div>
+
+        <div class="manifesto-box">
+            <h2>TU DECLARACIÓN DE PROPÓSITO</h2>
+            <div class="final-phrase">
+                Mi empresa existe para que <br>
+                <input type="text" class="input-inline" placeholder="(Ej: Mujeres emprendedoras / Profesionales estancados)"> <br>
+                llegue a <br>
+                <input type="text" class="input-inline" placeholder="(Ej: La libertad financiera / La maestría en ventas)"> <br>
+                y así generar <br>
+                <input type="text" class="input-inline" placeholder="(Ej: Un impacto en la economía de sus familias y comunidades)">.
+            </div>
+        </div>
+
+        <footer>
+            © 2026 Team Leader Academy – Todos los derechos reservados. <br>
+            <i>Este documento es material de estudio confidencial.</i>
+        </footer>
+    </div>
+
+</body>
+</html>

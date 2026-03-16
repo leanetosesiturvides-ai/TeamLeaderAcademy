@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de OKRs Trimestrales - Team Leader Academy</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #d4af37;
+            --success-color: #27ae60;
+            --bg-light: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 40px 20px;
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: left;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .quarter-tag {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .objective-section {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .input-objective {
+            width: 100%;
+            border: none;
+            border-bottom: 2px solid #ccc;
+            background: transparent;
+            font-size: 20px;
+            padding: 10px 0;
+            outline: none;
+            font-weight: 500;
+        }
+
+        .input-objective:focus {
+            border-bottom-color: var(--accent-color);
+        }
+
+        .kr-grid {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .kr-card {
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .kr-number {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .kr-content {
+            flex-grow: 1;
+        }
+
+        .kr-content input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #eee;
+            padding: 5px 0;
+            font-size: 16px;
+            margin-bottom: 8px;
+            outline: none;
+        }
+
+        .kr-content small {
+            color: #888;
+            font-size: 12px;
+            display: block;
+        }
+
+        .initiatives-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .initiatives-table th {
+            text-align: left;
+            font-size: 12px;
+            padding: 10px;
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .initiatives-table td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .checkbox-cell { width: 30px; text-align: center; }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+        }
+
+        .badge-nm {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 2px 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            font-size: 11px;
+            color: #495057;
+        }
+
+        @media print {
+            body { padding: 0; background: white; }
+            .container { box-shadow: none; border: 1px solid #eee; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div>
+                <h1>Gestor de OKRs Trimestrales</h1>
+                <div style="font-size: 12px; color: #666; margin-top: 5px;">Aterrizaje de Visión | Bloque 3: Team Leader Academy</div>
+            </div>
+            <div class="quarter-tag">Q2 - 2026</div>
+        </header>
+
+        <div class="objective-section">
+            <span class="section-title">Objetivo Aspiracional (Inspirador y Cualitativo)</span>
+            <input type="text" class="input-objective" placeholder="Ej: Dominar el sistema de duplicación para liberar mi tiempo operativo.">
+            <span class="badge-nm">Enfoque NM: Menos 'hacer' yo, más 'enseñar a hacer' a otros.</span>
+        </div>
+
+        <span class="section-title">Resultados Clave (Métricas Cuantificables)</span>
+        <div class="kr-grid">
+            <div class="kr-card">
+                <div class="kr-number">1</div>
+                <div class="kr-content">
+                    <input type="text" placeholder="Ej: Lograr 4 nuevos socios directos con el kit de inicio profesional.">
+                    <small>Métrica: Número de nuevos frontales activos.</small>
+                </div>
+            </div>
+            <div class="kr-card">
+                <div class="kr-number">2</div>
+                <div class="kr-content">
+                    <input type="text" placeholder="Ej: Reducir mis llamadas de cierre personal al 20% delegando en líderes B.">
+                    <small>Métrica: % de tiempo liberado en agenda semanal.</small>
+                </div>
+            </div>
+            <div class="kr-card">
+                <div class="kr-number">3</div>
+                <div class="kr-content">
+                    <input type="text" placeholder="Ej: Alcanzar un volumen de equipo (GV) de 10.000 puntos.">
+                    <small>Métrica: Puntos de Volumen grupal mensual.</small>
+                </div>
+            </div>
+        </div>
+
+        <span class="section-title">Plan de Acción (Iniciativas Semanales)</span>
+        <table class="initiatives-table">
+            <thead>
+                <tr>
+                    <th class="checkbox-cell">ok</th>
+                    <th>Acción Concreta (Iniciativa)</th>
+                    <th>Responsable / Frecuencia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="checkbox-cell"><input type="checkbox"></td>
+                    <td><input type="text" style="width: 90%; border:none;" placeholder="Ej: Crear video tutorial del sistema de prospección."></td>
+                    <td><small>Abril (Semana 1-2)</small></td>
+                </tr>
+                <tr>
+                    <td class="checkbox-cell"><input type="checkbox"></td>
+                    <td><input type="text" style="width: 90%; border:none;" placeholder="Ej: Entrenar a 3 líderes en el uso del Script de cierre."></td>
+                    <td><small>Martes y Jueves</small></td>
+                </tr>
+                <tr>
+                    <td class="checkbox-cell"><input type="checkbox"></td>
+                    <td><input type="text" style="width: 90%; border:none;" placeholder="Ej: Auditoría semanal de KPIs con el equipo clave."></td>
+                    <td><small>Todos los Viernes</small></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer>
+            © 2026 Team Leader Academy – Todos los derechos reservados. <br>
+            <i>"Si no se puede medir, no se puede liderar."</i>
+        </footer>
+    </div>
+
+</body>
+</html>
