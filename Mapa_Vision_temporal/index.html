@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Visión Temporal - Team Leader Academy</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #d4af37;
+            --bg-color: #ffffff;
+            --table-border: #e0e0e0;
+            --header-bg: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 40px 20px;
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--bg-color);
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .logo-area h1 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo-area span {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .instruction-box {
+            background-color: var(--header-bg);
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            line-height: 1.5;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        td {
+            border: 1px solid var(--table-border);
+            padding: 0;
+            vertical-align: top;
+        }
+
+        .row-label {
+            background-color: var(--header-bg);
+            font-weight: bold;
+            padding: 15px;
+            width: 150px;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            border: none;
+            padding: 15px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 14px;
+            resize: none;
+            background-color: transparent;
+        }
+
+        textarea:focus {
+            background-color: #fffdf5;
+            outline: none;
+        }
+
+        .example-text {
+            font-size: 11px;
+            color: #888;
+            padding: 0 15px 10px 15px;
+            display: block;
+            font-style: italic;
+        }
+
+        /* Botón de Descarga */
+        .download-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 8px 15px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .download-btn:hover {
+            background-color: #b8962d;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 11px;
+            color: #aaa;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        @media print {
+            body { padding: 0; background: none; }
+            .container { box-shadow: none; max-width: 100%; width: 100%; padding: 20px; }
+            .download-btn { display: none; }
+            textarea { height: auto; min-height: 100px; border: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button class="download-btn" onclick="window.print()">Descargar PDF</button>
+
+        <header>
+            <div class="logo-area">
+                <h1>MAPA DE VISIÓN TEMPORAL</h1>
+                <span>BLOQUE 3: DIRECCIÓN ESTRATÉGICA / TEAM LEADER ACADEMY</span>
+            </div>
+        </header>
+
+        <div class="instruction-box">
+            <strong>Instrucciones:</strong> No proyectes solo dinero. Proyecta la <strong>estructura</strong>. En el Network Marketing, el crecimiento sin sistema es caos. Define cómo evolucionará tu rol de "ejecutor de ventas" a "director de red".
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 180px;">Dimensión</th>
+                    <th>Año 1: Estabilización</th>
+                    <th>Año 3: Escalabilidad</th>
+                    <th>Año 5: Legado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="row-label">OBJETIVO ECONÓMICO<br><small>(Rango y Volumen)</small></td>
+                    <td>
+                        <textarea placeholder="Ej: Rango Oro, volumen de 15k PV mensuales estables."></textarea>
+                        <span class="example-text">Enfoque: Ingresos directos + bonos de equipo base.</span>
+                    </td>
+                    <td>
+                        <textarea placeholder="Ej: Rango Diamante, 3 líneas sólidas de liderazgo."></textarea>
+                        <span class="example-text">Enfoque: Maximizar el plan de compensación.</span>
+                    </td>
+                    <td>
+                        <textarea placeholder="Ej: Rango Presidencial, libertad financiera total."></textarea>
+                        <span class="example-text">Enfoque: Patrimonio y diversificación.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row-label">ESTRUCTURA DE EQUIPO<br><small>(Liderazgo)</small></td>
+                    <td>
+                        <textarea placeholder="Ej: 10 socios directos activos, 2 líderes en formación."></textarea>
+                        <span class="example-text">Rol: Mentoría personalizada uno a uno.</span>
+                    </td>
+                    <td>
+                        <textarea placeholder="Ej: Red de 500 personas, 5 directores autónomos."></textarea>
+                        <span class="example-text">Rol: Mentor de mentores (Liderazgo nivel 2).</span>
+                    </td>
+                    <td>
+                        <textarea placeholder="Ej: Organización global, sistemas de duplicación 100% autónomos."></textarea>
+                        <span class="example-text">Rol: Visionario y referente de marca.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="row-label">OPERATIVA DEL CEO<br><small>(Tu Tiempo)</small></td>
+                    <td>
+                        <textarea placeholder="Ej: 70% prospección y ventas, 30% formación."></textarea>
+                        <span class="example-text">Tareas: Prospección diaria y cierres.</span>
+                    </td>
+                    <td>
+                        <textarea placeholder="Ej: 20% operativa, 80% estrategia y eventos de equipo."></textarea>
+                        <span class="example-text">Tareas: Diseño de campañas y formación grupal.</span>
+                    </td>
+                    <td>
+                        <textarea placeholder="Ej: 5% supervisión, 95% tiempo libre o nuevos proyectos."></textarea>
+                        <span class="example-text">Tareas: Oratoria y expansión internacional.</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer>
+            © 2026 Team Leader Academy – Todos los derechos reservados. <br>
+            <i>"Tu negocio crecerá hasta el nivel de la visión que tengas para él."</i>
+        </footer>
+    </div>
+
+</body>
+</html>
